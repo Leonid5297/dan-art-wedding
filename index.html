@@ -14,14 +14,24 @@
 <meta name="supported-color-schemes" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=The+Nautigal&family=Comfortaa:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=The+Nautigal&family=Great+Vibes&family=Comfortaa:wght@400;500&display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
 <style>
+@font-face{font-family:'Princess Diana';src:url('assets/Princess-Diana.ttf') format('truetype');font-display:swap}
 html{background:#1a293d linear-gradient(180deg,#141f30,#1a293d 800px) no-repeat;color-scheme:light;-webkit-text-size-adjust:100%}
 html,body{margin:0;overscroll-behavior-y:none}
 @media (max-width:480px){html{background:#f4f4f2}}
 body{-webkit-font-smoothing:antialiased}
 [data-reveal]{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.names .n-l,.names .n-r,.names .n-f,.names .n-f2{opacity:0;transition:opacity 2.4s ease,translate 2.8s cubic-bezier(.22,1,.36,1)}
+.names .n-l{translate:-40px 0}
+.names .n-r{translate:40px 0}
+.names .n-h{opacity:0;transform:scale(0);transition:opacity .8s ease,transform 1s cubic-bezier(.34,1.56,.64,1)}
+.names.in .n-l,.names.in .n-r{opacity:1;translate:0 0}
+.names.in .n-f{opacity:1;transition-delay:1.4s}
+.names.in .n-f2{opacity:1;transition-delay:1.9s}
+.names.in .n-h{opacity:1;transform:scale(1);transition-delay:1.4s;animation:heartfloat 3.2s ease-in-out 2.4s infinite}
+@keyframes heartfloat{0%,100%{translate:0 0;rotate:0deg}25%{translate:0 -.1em;rotate:-6deg}75%{translate:0 -.05em;rotate:6deg}}
 *{box-sizing:border-box}
 a{color:inherit;text-decoration:none}
 a:hover{color:inherit;opacity:.85}
@@ -36,16 +46,16 @@ a:hover{color:inherit;opacity:.85}
 <div style="max-width:440px;margin:0 auto;padding:0;display:flex;flex-direction:column;box-shadow:0 0 40px rgba(0,0,0,.35);font-variant-numeric:lining-nums;font-family:'Cormorant Garamond',serif;color:#3d4047">
 
   <!-- 01 HERO -->
-  <section data-screen-label="01 Hero" style="position:relative;overflow:hidden;aspect-ratio:3/5.2;background:#2a2622">
+  <section data-screen-label="01 Hero" style="position:relative;overflow:hidden;aspect-ratio:3/5.2;container-type:inline-size;background:#2a2622">
     <img src="assets/p4.jpg" alt="Артём и Даниэла" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 30%;display:block">
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(20,16,14,.5) 100%),linear-gradient(270deg,rgba(0,0,0,.25),rgba(0,0,0,0) 40%)"></div>
-    <div data-reveal="1" style="position:absolute;right:24px;top:62px;display:flex;flex-direction:column;align-items:flex-end;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:112px;line-height:129px;color:#fff">
+    <div data-reveal="1" style="position:absolute;right:5.45cqw;top:14.1cqw;display:flex;flex-direction:column;align-items:flex-end;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:25.45cqw;line-height:29.3cqw;color:#fff">
       <span>19</span><span>12</span><span>26</span>
     </div>
-    <div data-reveal="1" style="position:absolute;left:0;right:0;bottom:78px;text-align:center;color:#fff;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:66px;line-height:72px;text-transform:uppercase">
+    <div data-reveal="1" style="position:absolute;left:0;right:0;bottom:17.7cqw;text-align:center;color:#fff;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:15cqw;line-height:16.36cqw;text-transform:uppercase">
       <div>Артём</div>
       <div style="position:relative">
-        <span style="position:absolute;left:0;right:0;top:-6px;font-family:'The Nautigal',cursive;font-size:96px;line-height:1;text-transform:none;color:rgba(255,255,255,.35)">save the date</span>
+        <span style="position:absolute;left:0;right:0;top:-1.36cqw;font-family:'The Nautigal',cursive;font-size:21.8cqw;line-height:1;text-transform:none;color:rgba(255,255,255,.35)">save the date</span>
         <span style="position:relative">&amp;</span>
       </div>
       <div>Даниэла</div>
@@ -62,13 +72,10 @@ a:hover{color:inherit;opacity:.85}
         <div style="width:100%;aspect-ratio:1179/1351;position:relative"><image-slot id="kid-daniela" src="assets/kid-daniela.jpg" shape="rect" fit="contain" placeholder="Детское фото Даниэлы"></image-slot></div>
         <svg viewBox="0 0 30 30" style="position:absolute;left:0%;top:0%;width:24%;overflow:visible" fill="#2f3138"><path d="M0.85 30Q1.24 16.5 1.25 2.6A0.63 0.63 0 0 0 0 2.6L0 30A0.43 0.43 0 0 0 0.85 30ZM2.9 0L30 0A0.4 0.4 0 0 1 30 0.8Q16.8 1.24 2.9 1.25A0.63 0.63 0 0 1 2.9 0Z"></path></svg>
       </div>
-      <div style="position:absolute;left:5%;top:79%;display:flex;align-items:center;gap:1cqw">
-        <span style="font-family:'Comfortaa',sans-serif;font-size:11.5cqw;line-height:1;color:#2f3138;letter-spacing:.04em;white-space:nowrap">А+Д=</span>
-        <span style="position:relative;display:block;width:21cqw;margin-top:-2cqw">
-          <svg viewBox="0 0 30 34" style="position:absolute;left:-30%;top:-58%;width:52%;overflow:visible" fill="#c9707e"><path d="M24.33 30.5Q15.44 24.33 6.19 18.71A0.35 0.35 0 0 1 5.81 19.29Q14.78 25.33 23.67 31.5A0.6 0.6 0 0 1 24.33 30.5ZM26.56 26.73Q21.42 16.3 16.32 5.85A0.35 0.35 0 0 1 15.68 6.15Q20.3 16.83 25.44 27.27A0.62 0.62 0 0 1 26.56 26.73ZM29.6 29.04Q30.25 20.54 30.35 12.02A0.35 0.35 0 0 1 29.65 11.98Q29.05 20.47 28.4 28.96A0.6 0.6 0 0 1 29.6 29.04Z"></path></svg>
-          <svg viewBox="0 0 64 58" style="display:block;width:100%;overflow:visible;transform:rotate(-10deg)"><path d="M32.55 53.07C24.91 46.38 5.81 33.97 5.81 19.17C5.81 10.57 12.02 4.84 19.66 4.84C25.39 4.84 30.16 8.18 32.55 12.96C34.94 8.18 39.71 4.84 45.44 4.84C53.08 4.84 59.29 10.57 59.29 19.17C59.29 33.97 40.19 46.38 32.55 53.07Z" fill="rgba(255,255,255,.35)"></path><path fill="#c9707e" fill-rule="evenodd" d="M32 54C24 47 4 34 4 18.5C4 9.5 10.5 3.5 18.5 3.5C24.5 3.5 29.5 7 32 12C34.5 7 39.5 3.5 45.5 3.5C53.5 3.5 60 9.5 60 18.5C60 34 40 47 32 54ZM32.55 53.07C24.91 46.38 5.81 33.97 5.81 19.17C5.81 10.57 12.02 4.84 19.66 4.84C25.39 4.84 30.16 8.18 32.55 12.96C34.94 8.18 39.71 4.84 45.44 4.84C53.08 4.84 59.29 10.57 59.29 19.17C59.29 33.97 40.19 46.38 32.55 53.07Z"></path></svg>
-        </span>
-      </div>
+      <span class="names" style="position:absolute;left:2.5%;top:76%;display:flex;align-items:center;gap:.1em;font-family:'Princess Diana','Great Vibes',cursive;font-size:6.3cqw;line-height:1;color:#2f3138;white-space:nowrap;transform:rotate(-8deg);transform-origin:left top"><span style="display:flex;flex-direction:column;align-items:center"><span class="n-l">Артём</span><span class="n-f" style="display:block;width:.85em;height:.85em;margin:.05em 0;transform:skewX(-10deg)"><svg viewBox="0 0 24 24" style="display:block;width:100%;height:100%;overflow:visible" fill="#2f3138" stroke="#2f3138" stroke-width=".25" stroke-linejoin="round"><path d="M2.5 12L12 11.3L21.5 12L12 12.7Z"></path><path d="M12 2.5L13.1 12L12 21.5L10.9 12Z"></path></svg></span><span class="n-r">Даниэла</span></span><span class="n-f2" style="display:block;width:.95em;height:.85em;margin-top:.3em;transform:skewX(-10deg)"><svg viewBox="0 0 24 24" style="display:block;width:100%;height:100%;overflow:visible" fill="#2f3138" stroke="#2f3138" stroke-width=".25" stroke-linejoin="round"><path d="M3 9Q12 7.4 21 9Q12 10.6 3 9Z"></path><path d="M3 15Q12 13.4 21 15Q12 16.6 3 15Z"></path></svg></span><span class="n-h" style="position:relative;display:block;width:1.5em">
+          
+          <svg viewBox="0 0 64 58" style="display:block;width:100%;overflow:visible;transform:scaleX(-1) rotate(-10deg)"><path d="M32 52C24 45 6 33 6 19C6 11 12 5.5 19.5 5.5C25 5.5 29.5 8.5 32 13.5C34.5 8.5 39 5.5 44.5 5.5C52 5.5 58 11 58 19C58 33 40 45 32 52Z" fill="#e0404e" stroke="#b3202d" stroke-width="2.2" stroke-linejoin="round"></path><path d="M33.5 49.8C42 43 55.6 32 56.2 19.4C56.6 12 51.2 7.2 44.6 7.4" fill="none" stroke="#b3202d" stroke-width="1.1" stroke-linecap="round" opacity=".55"></path><path d="M12.5 18.5C12.8 14 15.8 11 20 10.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".85"></path></svg>
+        </span></span>
     </div>
 
     <svg viewBox="0 0 110 10" style="display:block;margin:40px auto 0;width:104px;height:10px" fill="none" stroke="#6a6d74" stroke-width="1" stroke-linecap="round"><path d="M4 5C20 3 40 5.5 58 4S92 3 106 4.5M10 6.5C30 5.5 56 7 96 6M16 3.6C36 2.6 60 3.4 88 2.8"></path></svg>
@@ -220,11 +227,19 @@ class Component extends DCLogic {
       });
     }, { threshold: 0.1 });
     els.forEach(el => this._obs.observe(el));
+    this._namesObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
+        else if (e.boundingClientRect.top > 0) e.target.classList.remove('in');
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.names').forEach(el => this._namesObs.observe(el));
   }
 
   componentWillUnmount() {
     clearInterval(this._t);
     if (this._obs) this._obs.disconnect();
+    if (this._namesObs) this._namesObs.disconnect();
   }
 
   tick() {
