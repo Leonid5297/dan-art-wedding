@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#1a293d">
+<meta name="theme-color" content="#f4f4f2">
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,7 @@
 <style>
 html{background:#1a293d linear-gradient(180deg,#141f30,#1a293d 800px) no-repeat;color-scheme:light;-webkit-text-size-adjust:100%}
 html,body{margin:0;overscroll-behavior-y:none}
+@media (max-width:480px){html{background:#f4f4f2}}
 body{-webkit-font-smoothing:antialiased}
 [data-reveal]{-webkit-backface-visibility:hidden;backface-visibility:hidden}
 *{box-sizing:border-box}
@@ -214,7 +215,8 @@ class Component extends DCLogic {
     });
     this._obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.translate = '0 0'; this._obs.unobserve(e.target); }
+        if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.translate = '0 0'; }
+        else if (e.boundingClientRect.top > 0) { e.target.style.opacity = '0'; e.target.style.translate = '0 22px'; }
       });
     }, { threshold: 0.1 });
     els.forEach(el => this._obs.observe(el));
