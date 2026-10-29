@@ -38,12 +38,33 @@ a:hover{color:inherit;opacity:.85}
 .btn{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .1s ease}
 .btn:hover{opacity:1;background:#fff;border-color:#fff !important;color:#35506a !important}
 .btn:active{background:#d6e3ee;border-color:#d6e3ee !important;color:#26394d !important;transform:scale(.97)}
-.btn-dark:hover{background:#2f3138;border-color:#2f3138 !important;color:#fff !important}
-.btn-dark:active{background:#1f2126;border-color:#1f2126 !important;color:#fff !important}
+.btn-dark:hover{background:#4f6b8a;border-color:#4f6b8a !important;color:#fff !important}
+.rf-modal{position:fixed;left:0;top:0;right:0;bottom:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;visibility:hidden;opacity:0;transition:opacity .3s ease,visibility 0s linear .3s}
+.rf-modal.open{visibility:visible;opacity:1;transition:opacity .3s ease}
+.rf-back{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(22,32,46,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.rf-panel{position:relative;width:100%;max-width:400px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 20px 18px;border-radius:22px;background:linear-gradient(180deg,#8ea6c0 0%,#5f7390 100%);box-shadow:0 20px 50px rgba(10,16,26,.5);color:#fff;transform:translateY(24px) scale(.97);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.rf-modal.open .rf-panel{transform:none}
+.rf-title{margin:0 0 12px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.1;text-transform:uppercase}
+.rf-close{position:absolute;right:8px;top:6px;width:40px;height:40px;border:0;background:transparent;color:#fff;font-size:34px;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent;opacity:.85}
+.rf-close:hover{opacity:1}
+.rf-l{display:block;margin:14px 0 6px;font-size:17px;line-height:1.2;color:#fff}
+.rf-l:first-child{margin-top:0}
+.rf-i{display:block;width:100%;height:46px;padding:0 14px;border:1px solid rgba(255,255,255,.55);border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-family:'Cormorant Garamond',serif;font-variant-numeric:lining-nums;font-size:18px;outline:none;-webkit-appearance:none;appearance:none;transition:border-color .2s ease,background-color .2s ease}
+.rf-i::placeholder{color:rgba(255,255,255,.6)}
+.rf-i:focus{border-color:#fff;background:rgba(255,255,255,.22)}
+.rf-i.rf-err{border-color:#ffd0d0;background:rgba(255,200,200,.16)}
+.rf-step{display:flex;align-items:center;gap:12px}
+.rf-step button{width:46px;height:46px;border:1px solid rgba(255,255,255,.55);border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .2s ease,transform .1s ease}
+.rf-step button:hover{background:rgba(255,255,255,.28)}
+.rf-step button:active{background:rgba(255,255,255,.4);transform:scale(.95)}
+.rf-step .rf-i{width:56px;padding:0;text-align:center;font-size:22px}
+.rf-submit{cursor:pointer;background:transparent;font-family:'Cormorant Garamond',serif}
+.rf-msg{min-height:20px;margin-top:8px;text-align:center;font-size:17px;line-height:1.2;color:#fff}
+.btn-dark:active{background:#26334a;border-color:#26334a !important;color:#fff !important}
 </style>
 </helmet>
 
-<div style="max-width:440px;margin:0 auto;padding:0;display:flex;flex-direction:column;box-shadow:0 0 40px rgba(0,0,0,.35);font-variant-numeric:lining-nums;font-family:'Cormorant Garamond',serif;color:#3d4047">
+<div style="max-width:440px;margin:0 auto;padding:0;display:flex;flex-direction:column;box-shadow:0 0 40px rgba(0,0,0,.35);font-variant-numeric:lining-nums;font-family:'Cormorant Garamond',serif;color:#33404f">
 
   <!-- 01 HERO -->
   <section data-screen-label="01 Hero" style="position:relative;overflow:hidden;aspect-ratio:3/5.2;container-type:inline-size;background:#2a2622">
@@ -63,50 +84,55 @@ a:hover{color:inherit;opacity:.85}
   </section>
 
   <!-- 02 STORY -->
-  <section data-screen-label="02 Story" style="position:relative;z-index:1;margin-top:-28px;border-radius:28px 28px 0 0;padding:44px 26px 74px;background:radial-gradient(ellipse 70% 40% at 80% 18%,rgba(190,195,200,.28),transparent 70%),radial-gradient(ellipse 60% 35% at 15% 60%,rgba(200,204,210,.25),transparent 70%),#f4f4f2;overflow:hidden">    <div data-reveal="1" style="position:relative;margin:-10px -26px 0;aspect-ratio:280/300;container-type:inline-size">
+  <section data-screen-label="02 Story" style="position:relative;z-index:1;margin-top:-28px;border-radius:28px 28px 0 0;padding:44px 26px 74px;background:radial-gradient(ellipse 70% 40% at 80% 18%,rgba(159,182,202,.38),transparent 70%),radial-gradient(ellipse 60% 35% at 15% 60%,rgba(203,215,232,.55),transparent 70%),#f4f4f2;overflow:hidden">    <div data-reveal="1" style="position:relative;margin:-10px -26px 0;aspect-ratio:280/300;container-type:inline-size">
       <div style="position:absolute;left:7.7%;top:12%;width:44%;padding:2.6% 2.6% 10.5%;background:#fff;box-shadow:0 4px 14px rgba(40,40,50,.2);transform:rotate(-6deg)">
         <div style="width:100%;aspect-ratio:445/521;position:relative"><image-slot id="kid-artem" src="assets/kid-artem.jpg" shape="rect" fit="contain" placeholder="Детское фото Артёма"></image-slot></div>
-        <svg viewBox="0 0 48 34" style="position:absolute;right:-22%;top:-16%;width:39%;overflow:visible;transform:rotate(13deg)" fill="#2f3138"><path d="M6.48 20.6Q4.13 17.48 1.29 14.76A0.38 0.38 0 0 1 0.71 15.24Q3.18 18.27 5.52 21.4A0.62 0.62 0 0 1 6.48 20.6ZM12.63 16.83Q10.97 11.37 9.36 5.9A0.38 0.38 0 0 1 8.64 6.1Q9.74 11.71 11.37 17.17A0.65 0.65 0 0 1 12.63 16.83ZM18.65 15.05Q19.3 9.07 19.37 3.03A0.38 0.38 0 0 1 18.63 2.97Q18 8.96 17.35 14.95A0.65 0.65 0 0 1 18.65 15.05ZM24.58 17.29Q27.25 12.38 29.34 7.17A0.38 0.38 0 0 1 28.66 6.83Q26.11 11.8 23.42 16.71A0.65 0.65 0 0 1 24.58 17.29ZM29.92 22.76Q33.36 19.45 36.85 16.18A0.38 0.38 0 0 1 36.35 15.62Q32.53 18.53 29.08 21.84A0.62 0.62 0 0 1 29.92 22.76ZM32.71 28.79Q36.78 27.52 40.63 25.65A0.38 0.38 0 0 1 40.37 24.95Q36.36 26.36 32.29 27.61A0.62 0.62 0 0 1 32.71 28.79ZM33.18 35.2Q37.08 35.2 40.99 35.27A0.38 0.38 0 0 1 41.01 34.53Q37.13 34 33.22 34A0.6 0.6 0 0 1 33.18 35.2Z"></path></svg>
+        <svg viewBox="0 0 48 34" style="position:absolute;right:-22%;top:-16%;width:39%;overflow:visible;transform:rotate(13deg)" fill="#2c3a4d"><path d="M6.48 20.6Q4.13 17.48 1.29 14.76A0.38 0.38 0 0 1 0.71 15.24Q3.18 18.27 5.52 21.4A0.62 0.62 0 0 1 6.48 20.6ZM12.63 16.83Q10.97 11.37 9.36 5.9A0.38 0.38 0 0 1 8.64 6.1Q9.74 11.71 11.37 17.17A0.65 0.65 0 0 1 12.63 16.83ZM18.65 15.05Q19.3 9.07 19.37 3.03A0.38 0.38 0 0 1 18.63 2.97Q18 8.96 17.35 14.95A0.65 0.65 0 0 1 18.65 15.05ZM24.58 17.29Q27.25 12.38 29.34 7.17A0.38 0.38 0 0 1 28.66 6.83Q26.11 11.8 23.42 16.71A0.65 0.65 0 0 1 24.58 17.29ZM29.92 22.76Q33.36 19.45 36.85 16.18A0.38 0.38 0 0 1 36.35 15.62Q32.53 18.53 29.08 21.84A0.62 0.62 0 0 1 29.92 22.76ZM32.71 28.79Q36.78 27.52 40.63 25.65A0.38 0.38 0 0 1 40.37 24.95Q36.36 26.36 32.29 27.61A0.62 0.62 0 0 1 32.71 28.79ZM33.18 35.2Q37.08 35.2 40.99 35.27A0.38 0.38 0 0 1 41.01 34.53Q37.13 34 33.22 34A0.6 0.6 0 0 1 33.18 35.2Z"></path></svg>
       </div>
       <div style="position:absolute;left:48.7%;top:41%;width:44%;padding:2.6% 2.6% 10.5%;background:#fff;box-shadow:0 4px 14px rgba(40,40,50,.2);transform:rotate(8deg)">
         <div style="width:100%;aspect-ratio:1179/1351;position:relative"><image-slot id="kid-daniela" src="assets/kid-daniela.jpg" shape="rect" fit="contain" placeholder="Детское фото Даниэлы"></image-slot></div>
-        <svg viewBox="0 0 30 30" style="position:absolute;left:0%;top:0%;width:24%;overflow:visible" fill="#2f3138"><path d="M0.85 30Q1.24 16.5 1.25 2.6A0.63 0.63 0 0 0 0 2.6L0 30A0.43 0.43 0 0 0 0.85 30ZM2.9 0L30 0A0.4 0.4 0 0 1 30 0.8Q16.8 1.24 2.9 1.25A0.63 0.63 0 0 1 2.9 0Z"></path></svg>
+        <svg viewBox="0 0 30 30" style="position:absolute;left:0%;top:0%;width:24%;overflow:visible" fill="#2c3a4d"><path d="M0.85 30Q1.24 16.5 1.25 2.6A0.63 0.63 0 0 0 0 2.6L0 30A0.43 0.43 0 0 0 0.85 30ZM2.9 0L30 0A0.4 0.4 0 0 1 30 0.8Q16.8 1.24 2.9 1.25A0.63 0.63 0 0 1 2.9 0Z"></path></svg>
       </div>
-      <span class="names" style="position:absolute;left:2.5%;top:76%;display:flex;align-items:center;gap:.1em;font-family:'Princess Diana','Great Vibes',cursive;font-size:6.3cqw;line-height:1;color:#2f3138;white-space:nowrap;transform:rotate(-8deg);transform-origin:left top"><span style="display:flex;flex-direction:column;align-items:center"><span class="n-l">Артём</span><span class="n-f" style="display:block;width:.85em;height:.85em;margin:.05em 0;transform:skewX(-10deg)"><svg viewBox="0 0 24 24" style="display:block;width:100%;height:100%;overflow:visible" fill="#2f3138" stroke="#2f3138" stroke-width=".25" stroke-linejoin="round"><path d="M2.5 12L12 11.3L21.5 12L12 12.7Z"></path><path d="M12 2.5L13.1 12L12 21.5L10.9 12Z"></path></svg></span><span class="n-r">Даниэла</span></span><span class="n-f2" style="display:block;width:.95em;height:.85em;margin-top:.3em;transform:skewX(-10deg)"><svg viewBox="0 0 24 24" style="display:block;width:100%;height:100%;overflow:visible" fill="#2f3138" stroke="#2f3138" stroke-width=".25" stroke-linejoin="round"><path d="M3 9Q12 7.4 21 9Q12 10.6 3 9Z"></path><path d="M3 15Q12 13.4 21 15Q12 16.6 3 15Z"></path></svg></span><span class="n-h" style="position:relative;display:block;width:1.5em">
+      <span class="names" style="position:absolute;left:2.5%;top:76%;display:flex;align-items:center;gap:.1em;font-family:'Princess Diana','Great Vibes',cursive;font-size:6.3cqw;line-height:1;color:#2c3a4d;white-space:nowrap;transform:rotate(-8deg);transform-origin:left top"><span style="display:flex;flex-direction:column;align-items:center"><span class="n-l">Артём</span><span class="n-f" style="display:block;width:.85em;height:.85em;margin:.05em 0;transform:skewX(-10deg)"><svg viewBox="0 0 24 24" style="display:block;width:100%;height:100%;overflow:visible" fill="#2c3a4d" stroke="#2c3a4d" stroke-width=".25" stroke-linejoin="round"><path d="M2.5 12L12 11.3L21.5 12L12 12.7Z"></path><path d="M12 2.5L13.1 12L12 21.5L10.9 12Z"></path></svg></span><span class="n-r">Даниэла</span></span><span class="n-f2" style="display:block;width:.95em;height:.85em;margin-top:.3em;transform:skewX(-10deg)"><svg viewBox="0 0 24 24" style="display:block;width:100%;height:100%;overflow:visible" fill="#2c3a4d" stroke="#2c3a4d" stroke-width=".25" stroke-linejoin="round"><path d="M3 9Q12 7.4 21 9Q12 10.6 3 9Z"></path><path d="M3 15Q12 13.4 21 15Q12 16.6 3 15Z"></path></svg></span><span class="n-h" style="position:relative;display:block;width:1.5em">
           
           <svg viewBox="0 0 64 58" style="display:block;width:100%;overflow:visible;transform:scaleX(-1) rotate(-10deg)"><path d="M32 52C24 45 6 33 6 19C6 11 12 5.5 19.5 5.5C25 5.5 29.5 8.5 32 13.5C34.5 8.5 39 5.5 44.5 5.5C52 5.5 58 11 58 19C58 33 40 45 32 52Z" fill="#e0404e" stroke="#b3202d" stroke-width="2.2" stroke-linejoin="round"></path><path d="M33.5 49.8C42 43 55.6 32 56.2 19.4C56.6 12 51.2 7.2 44.6 7.4" fill="none" stroke="#b3202d" stroke-width="1.1" stroke-linecap="round" opacity=".55"></path><path d="M12.5 18.5C12.8 14 15.8 11 20 10.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".85"></path></svg>
         </span></span>
     </div>
 
-    <svg viewBox="0 0 110 10" style="display:block;margin:40px auto 0;width:104px;height:10px" fill="none" stroke="#6a6d74" stroke-width="1" stroke-linecap="round"><path d="M4 5C20 3 40 5.5 58 4S92 3 106 4.5M10 6.5C30 5.5 56 7 96 6M16 3.6C36 2.6 60 3.4 88 2.8"></path></svg>
-    <div data-reveal="1" style="margin-top:22px;text-align:center;font-family:'Comfortaa',sans-serif;color:#2f3138">
+    <svg viewBox="0 0 110 10" style="display:block;margin:40px auto 0;width:104px;height:10px" fill="none" stroke="#5a6b7c" stroke-width="1" stroke-linecap="round"><path d="M4 5C20 3 40 5.5 58 4S92 3 106 4.5M10 6.5C30 5.5 56 7 96 6M16 3.6C36 2.6 60 3.4 88 2.8"></path></svg>
+    <div data-reveal="1" style="margin-top:22px;text-align:center;font-family:'Comfortaa',sans-serif;color:#2c3a4d">
       <div style="font-size:15px;letter-spacing:.14em;text-transform:uppercase">Узнаёте этих детишек?</div>
-      <p style="margin:14px auto 0;max-width:390px;font-size:14px;line-height:2.05;letter-spacing:.06em;text-wrap:pretty;color:#3d4047">Да-да, это мы!<br>Время летит так быстро, представляете?<br>И вот мы повзрослели, кажется, пришло время создавать свою семью!</p>
+      <p style="margin:14px auto 0;max-width:390px;font-size:14px;line-height:2.05;letter-spacing:.06em;text-wrap:pretty;color:#33404f">Да-да, это мы!<br>Время летит так быстро, представляете?<br>И вот мы повзрослели, кажется, пришло время создавать свою семью!</p>
     </div>
 
-    <svg viewBox="0 0 110 10" style="display:block;margin:26px auto 0;width:104px;height:10px" fill="none" stroke="#6a6d74" stroke-width="1" stroke-linecap="round"><path d="M4 5C20 3 40 5.5 58 4S92 3 106 4.5M10 6.5C30 5.5 56 7 96 6M16 3.6C36 2.6 60 3.4 88 2.8"></path></svg>
+    <svg viewBox="0 0 110 10" style="display:block;margin:26px auto 0;width:104px;height:10px" fill="none" stroke="#5a6b7c" stroke-width="1" stroke-linecap="round"><path d="M4 5C20 3 40 5.5 58 4S92 3 106 4.5M10 6.5C30 5.5 56 7 96 6M16 3.6C36 2.6 60 3.4 88 2.8"></path></svg>
     <div data-reveal="1" style="margin:34px auto 0;width:86%;padding:8%;background:#fff;box-shadow:0 2px 10px rgba(40,40,50,.08)">
       <img src="assets/p1.jpg" alt="" style="width:100%;aspect-ratio:2/3;object-fit:cover;object-position:50% 45%;display:block">
     </div>
 
+    <div data-reveal="1" style="margin:26px auto 0;max-width:380px;text-align:center">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4f6b8a">Душа наша уповает на&nbsp;Господа!<br>Он&nbsp;— помощь наша и&nbsp;защита наша.</p>
+      <div style="margin-top:12px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#5a6b7c">Псалом 32:20</div>
+    </div>
+
     <div data-reveal="1" style="margin-top:46px;text-align:center">
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;letter-spacing:.03em;text-transform:uppercase;color:#2f3138">Родные и любимые!</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;letter-spacing:.03em;text-transform:uppercase;color:#4f6b8a">Родные и любимые!</div>
       <p style="margin:18px auto 0;max-width:345px;font-size:22px;line-height:1.27;text-wrap:pretty">Хотим, чтобы вы разделили с нами радость и были на торжестве в самый лучший и трогательный день в нашей жизни!</p>
-      <div style="margin-top:22px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:37px;color:#2f3138">19.12.2026</div>
-      <p style="margin:18px auto 0;max-width:300px;font-size:22px;line-height:1.27">Мы будем безумно рады видеть вас в кругу наших гостей!</p>
+      <div style="margin-top:22px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:37px;color:#4f6b8a">19.12.2026</div>
+      <p style="margin:18px auto 0;max-width:300px;font-size:22px;line-height:1.27">Будем счастливы разделить этот день с вами!</p>
       <div style="margin-top:20px;font-size:19px;letter-spacing:.04em;text-transform:uppercase">Артём &amp; Даниэла</div>
     </div>
 
-    <div data-reveal="1" style="margin-top:52px;text-align:center">
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;line-height:1.25;letter-spacing:.03em;text-transform:uppercase;color:#2f3138">До нашей свадьбы<br>осталось</div>
+    <div data-reveal="1" style="margin:52px -8px 0;padding:38px 10px 34px;text-align:center;background:linear-gradient(160deg,#4a5b75,#33404f);border-radius:24px;box-shadow:0 8px 24px rgba(51,64,79,.25)">
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;line-height:1.25;letter-spacing:.03em;text-transform:uppercase;color:#fff">До нашей свадьбы<br>осталось</div>
       <div style="margin-top:26px;display:flex;justify-content:center;gap:18px">
         <sc-for list="{{ cd }}" as="u" hint-placeholder-count="4">
           <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
             <div style="display:flex;gap:4px">
-              <span style="width:36px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid #d2d4d8;border-radius:3px;background:#fbfbfa;box-shadow:0 1px 3px rgba(40,40,50,.08);font-family:'Cormorant Garamond',serif;font-size:26px;color:#2f3138">{{ u.a }}</span>
-              <span style="width:36px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid #d2d4d8;border-radius:3px;background:#fbfbfa;box-shadow:0 1px 3px rgba(40,40,50,.08);font-family:'Cormorant Garamond',serif;font-size:26px;color:#2f3138">{{ u.b }}</span>
+              <span style="width:36px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(203,215,232,.45);border-radius:3px;background:rgba(203,215,232,.14);font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff">{{ u.a }}</span>
+              <span style="width:36px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(203,215,232,.45);border-radius:3px;background:rgba(203,215,232,.14);font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff">{{ u.b }}</span>
             </div>
-            <span style="font-size:11px;color:#6b6e76">{{ u.label }}</span>
+            <span style="font-size:11px;color:rgba(203,215,232,.8)">{{ u.label }}</span>
           </div>
         </sc-for>
       </div>
@@ -155,33 +181,32 @@ a:hover{color:inherit;opacity:.85}
   </section>
 
   <!-- 04 DRESS CODE + DETAILS -->
-  <section data-screen-label="04 Details" style="position:relative;z-index:3;margin-top:-28px;border-radius:28px 28px 0 0;padding:68px 26px 130px;background:radial-gradient(ellipse 70% 30% at 80% 10%,rgba(190,195,200,.28),transparent 70%),radial-gradient(ellipse 60% 30% at 20% 55%,rgba(200,204,210,.22),transparent 70%),#f4f4f2;text-align:center;overflow:hidden">
+  <section data-screen-label="04 Details" style="position:relative;z-index:3;margin-top:-28px;border-radius:28px 28px 0 0;padding:68px 26px 130px;background:radial-gradient(ellipse 70% 30% at 80% 10%,rgba(159,182,202,.38),transparent 70%),radial-gradient(ellipse 60% 30% at 20% 55%,rgba(203,215,232,.5),transparent 70%),#f4f4f2;text-align:center;overflow:hidden">
     <div data-reveal="1" style="position:relative;padding-bottom:52px">
-      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase;color:#1f2126">Дресс-код</div>
-      <div style="position:absolute;left:0;right:0;top:20px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(60,64,72,.28);white-space:nowrap;pointer-events:none">dress code</div>
+      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase;color:#4f6b8a">Дресс-код</div>
+      <div style="position:absolute;left:0;right:0;top:20px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(159,182,202,.55);white-space:nowrap;pointer-events:none">dress code</div>
     </div>
     <div data-reveal="1" style="margin-top:30px">
-      <p style="margin:0 auto;max-width:390px;font-size:22px;line-height:1.27">Мы очень ждём и с удовольствием готовимся к нашему незабываемому дню!</p>
-      <p style="margin:22px auto 0;max-width:320px;font-size:22px;line-height:1.27">Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества.</p>
+      <p style="margin:0 auto;max-width:320px;font-size:22px;line-height:1.27">Будем рады видеть вас в нарядах палитры торжества.</p>
       <div style="margin-top:40px;display:flex;justify-content:center;gap:9px">
         <sc-for list="{{ palette }}" as="c" hint-placeholder-count="6">
           <span style="{{ c.style }}"></span>
         </sc-for>
       </div>
-      <p style="margin:40px auto 0;max-width:300px;font-size:22px;line-height:1.27">Спасибо, что сделаете этот день ещё красивее своими нарядами!</p>
+      <p style="margin:40px auto 0;max-width:300px;font-size:22px;line-height:1.27">Заранее благодарим вас за красивые образы!</p>
     </div>
 
     <div data-reveal="1" style="position:relative;margin-top:76px;padding-bottom:52px">
-      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase;color:#1f2126">Детали</div>
-      <div style="position:absolute;left:30%;top:20px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(60,64,72,.28);white-space:nowrap;pointer-events:none">details</div>
+      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase;color:#4f6b8a">Детали</div>
+      <div style="position:absolute;left:30%;top:20px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(159,182,202,.55);white-space:nowrap;pointer-events:none">details</div>
     </div>
     <div data-reveal="1" style="margin-top:30px">
-      <div style="font-size:19px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#1f2126">Подарки</div>
+      <div style="font-size:19px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#26334a">Подарки</div>
       <p style="margin:16px auto 0;max-width:355px;font-size:22px;line-height:1.27">Будем благодарны, если вы выберете подарок, который пополнит бюджет нашей молодой семьи.</p>
     </div>
     <div data-reveal="1" style="margin-top:44px">
       <p style="margin:0 auto;max-width:330px;font-size:22px;line-height:1.27">Также вы можете выбрать и забронировать подарок из вишлиста.</p>
-      <a class="btn btn-dark" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:45px;margin-top:28px;padding:0 21px;border:1px solid rgba(47,49,56,.55);font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:#2f3138">Открыть вишлист</a>
+      <a class="btn btn-dark" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:45px;margin-top:28px;padding:0 21px;border:1px solid #4f6b8a;font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:#4f6b8a">Открыть вишлист</a>
     </div>
     <div data-reveal="1" style="position:relative;margin:56px auto 0;width:86%;padding:7.5%;background:#fff;box-shadow:0 2px 10px rgba(40,40,50,.08)">
       <img src="assets/p2.jpg" alt="" style="width:100%;aspect-ratio:2/3;object-fit:cover;object-position:50% 30%;display:block">
@@ -190,20 +215,45 @@ a:hover{color:inherit;opacity:.85}
   </section>
 
   <!-- 05 RSVP -->
-  <section data-screen-label="05 RSVP" style="position:relative;z-index:4;margin-top:-28px;border-radius:28px 28px 0 0;padding:68px 26px 120px;background:radial-gradient(ellipse 60% 35% at 70% 20%,rgba(255,255,255,.22),transparent 70%),radial-gradient(ellipse 60% 35% at 20% 80%,rgba(255,255,255,.16),transparent 70%),#9fb6ca;color:#fff;text-align:center;overflow:hidden">
+  <section data-screen-label="05 RSVP" style="position:relative;z-index:4;margin-top:-28px;border-radius:28px 28px 0 0;padding:68px 26px 0;background:radial-gradient(ellipse 60% 25% at 70% 12%,rgba(255,255,255,.22),transparent 70%),linear-gradient(180deg,#9fb6ca 0%,#7790ab 32%,#506179 68%,#33404f 100%);color:#fff;text-align:center;overflow:hidden">
     <div data-reveal="1" style="position:relative;padding-bottom:50px">
       <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase">Анкета гостя</div>
       <div style="position:absolute;left:36%;top:2px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(255,255,255,.38);white-space:nowrap;pointer-events:none">Rsvp</div>
     </div>
     <div data-reveal="1" style="margin-top:30px">
-      <p style="margin:0 auto;max-width:290px;font-size:22px;line-height:1.27;color:rgba(255,255,255,.92)">Пожалуйста, подтвердите своё присутствие любым удобным способом и заполните форму по&nbsp;ссылке ниже.</p>
-      <a class="btn" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:45px;margin-top:44px;padding:0 21px;border:1px solid rgba(255,255,255,.6);font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:rgba(255,255,255,.9)">Заполнить анкету</a>
+      <p style="margin:0 auto;max-width:300px;font-size:22px;line-height:1.27;color:rgba(255,255,255,.92)">Пожалуйста, подтвердите своё присутствие любым удобным способом и заполните анкету.</p>
+      <button type="button" id="rsvp-open" class="btn rf-submit" style="display:inline-flex;align-items:center;height:45px;margin-top:44px;padding:0 21px;border:1px solid rgba(255,255,255,.6);font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:rgba(255,255,255,.9)">Заполнить анкету</button>
     </div>
     <div data-reveal="1" style="margin-top:76px">
       <div style="font-size:20px;line-height:1.38;letter-spacing:.02em;text-transform:uppercase">С нетерпением ждём<br>встречи с вами<br>на нашей свадьбе!</div>
-      <div style="margin:10px 6px 0 0;text-align:right;font-family:'The Nautigal',cursive;font-size:50px;line-height:1;color:rgba(255,255,255,.75);transform:rotate(-18deg);transform-origin:right center;white-space:nowrap">Artem &amp; Daniela</div>
+    </div>
+    <div data-reveal="1" style="position:relative;margin:44px -26px 0">
+      <img src="assets/p5.jpg" alt="Артём и Даниэла" style="width:100%;aspect-ratio:2/3;object-fit:cover;object-position:50% 55%;display:block;-webkit-mask-image:linear-gradient(180deg,transparent,#000 14%);mask-image:linear-gradient(180deg,transparent,#000 14%)">
+      <div style="position:absolute;right:7%;bottom:6%;text-align:right;font-family:'The Nautigal',cursive;font-size:50px;line-height:1;color:#fff;text-shadow:0 2px 12px rgba(20,28,40,.55);transform:rotate(-8deg);transform-origin:right center;white-space:nowrap">Artem &amp; Daniela</div>
     </div>
   </section>
+
+  <div id="rsvp-modal" class="rf-modal" aria-hidden="true">
+    <div class="rf-back"></div>
+    <div class="rf-panel" role="dialog" aria-modal="true" aria-label="Анкета гостя">
+      <button type="button" class="rf-close" aria-label="Закрыть">&times;</button>
+      <div class="rf-title">Анкета гостя</div>
+      <form id="rsvp" novalidate style="margin:0;text-align:left">
+        <label class="rf-l" for="rf-name">Фамилия и имя</label>
+        <input class="rf-i" id="rf-name" name="name" type="text" maxlength="60" placeholder="ФИО" autocomplete="name">
+        <label class="rf-l" for="rf-guests">Количество человек вместе с Вами (дети, супруг/а)</label>
+        <div class="rf-step">
+          <button type="button" data-d="-1" aria-label="Меньше">&minus;</button>
+          <input class="rf-i" id="rf-guests" name="guests" type="text" inputmode="numeric" readonly>
+          <button type="button" data-d="1" aria-label="Больше">+</button>
+        </div>
+        <label class="rf-l" for="rf-phone">Ваш телефон (необязательно)</label>
+        <input class="rf-i" id="rf-phone" name="phone" type="tel" maxlength="18" placeholder="+7 (999) 999-9999" autocomplete="tel" inputmode="tel">
+        <div style="text-align:center;margin-top:18px"><button class="btn rf-submit" type="submit" style="display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 28px;border:1px solid rgba(255,255,255,.6);font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:rgba(255,255,255,.9)">Отправить</button></div>
+        <div class="rf-msg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
 
 </div>
 </x-dc>
@@ -234,6 +284,71 @@ class Component extends DCLogic {
       });
     }, { threshold: 0.5 });
     document.querySelectorAll('.names').forEach(el => this._namesObs.observe(el));
+    this.initRsvp();
+  }
+
+  initRsvp() {
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbw9a9lV7i7aOS0Oc2M0fv-jLRExAt2MRdPN6uwZ28J1hshCulmrgIiU-GdNbqwCn4py/exec'; // Google Apps Script, записывает ответы в таблицу
+    const f = document.getElementById('rsvp');
+    if (!f) return;
+    const modal = document.getElementById('rsvp-modal');
+    const openBtn = document.getElementById('rsvp-open');
+    const setOpen = on => {
+      modal.classList.toggle('open', on);
+      modal.setAttribute('aria-hidden', on ? 'false' : 'true');
+      document.documentElement.style.overflow = on ? 'hidden' : '';
+      if (on) setTimeout(() => f.elements['name'].focus({ preventScroll: true }), 350);
+    };
+    openBtn.addEventListener('click', () => setOpen(true));
+    modal.querySelector('.rf-close').addEventListener('click', () => setOpen(false));
+    modal.querySelector('.rf-back').addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) setOpen(false); });
+    const name = f.elements['name'], guests = f.elements['guests'], phone = f.elements['phone'];
+    guests.value = '0';
+    const msg = f.querySelector('.rf-msg'), btn = f.querySelector('.rf-submit');
+    f.querySelectorAll('.rf-step button').forEach(b => b.addEventListener('click', () => {
+      const v = Math.max(0, Math.min(10, (parseInt(guests.value, 10) || 0) + parseInt(b.dataset.d, 10)));
+      guests.value = String(v);
+    }));
+    phone.addEventListener('input', () => {
+      let d = phone.value.replace(/\D/g, '');
+      if (d[0] === '8') d = '7' + d.slice(1);
+      if (d && d[0] !== '7') d = '7' + d;
+      d = d.slice(0, 11);
+      const p = d.slice(1);
+      let out = d ? '+7' : '';
+      if (p.length) out += ' (' + p.slice(0, 3);
+      if (p.length >= 3) out += ')';
+      if (p.length > 3) out += ' ' + p.slice(3, 6);
+      if (p.length > 6) out += '-' + p.slice(6, 8);
+      if (p.length > 8) out += '-' + p.slice(8, 10);
+      phone.value = out;
+    });
+    name.addEventListener('input', () => name.classList.remove('rf-err'));
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      msg.textContent = '';
+      if (name.value.trim().length < 2) { name.classList.add('rf-err'); name.focus(); msg.textContent = 'Пожалуйста, укажите фамилию и имя.'; return; }
+      if (!ENDPOINT) { msg.textContent = 'Форма пока не подключена к приёму ответов.'; return; }
+      const data = { fio: name.value.trim(), count: guests.value, phone: phone.value };
+      // сразу показываем успех, а отправка идёт в фоне
+      btn.disabled = true;
+      msg.textContent = 'Спасибо! Ваш ответ получен.';
+      setTimeout(() => {
+        setOpen(false);
+        msg.textContent = '';
+        f.reset(); guests.value = '0';
+        btn.disabled = false;
+      }, 1800);
+      // no-cors: Apps Script не отдаёт CORS-заголовки; keepalive — чтобы запрос дошёл, даже если гость закроет страницу
+      fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data), keepalive: true }).catch(() => {
+        // сеть недоступна: возвращаем гостя к форме с введёнными данными
+        name.value = data.fio; guests.value = data.count; phone.value = data.phone;
+        btn.disabled = false;
+        setOpen(true);
+        msg.textContent = 'Не удалось отправить. Проверьте интернет и нажмите «Отправить» ещё раз.';
+      });
+    });
   }
 
   componentWillUnmount() {
