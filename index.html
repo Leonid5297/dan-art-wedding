@@ -162,6 +162,9 @@ html.intro-on [data-reveal]{opacity:0 !important;translate:0 22px !important}
 <script src="./image-slot.js"></script>
 <style>
 @font-face{font-family:'Princess Diana';src:url('assets/Princess-Diana.ttf') format('truetype');font-display:swap}
+/* размеры под узкие экраны: 6.6 — ширина слова «проведения» в кеглях, 52px — боковые поля секции */
+:root{--fs-h:min(50px,calc((100vw - 52px) / 6.6));--fs-script:min(120px,30vw)}
+.cd-box{width:min(36px,10cqw);height:min(46px,12.8cqw);display:flex;align-items:center;justify-content:center;border:1px solid rgba(203,215,232,.45);border-radius:3px;background:rgba(203,215,232,.14);font-family:'Cormorant Garamond',serif;font-size:min(26px,7.2cqw);color:#fff}
 html{background:#1a293d linear-gradient(180deg,#141f30,#1a293d 800px) no-repeat;color-scheme:light;-webkit-text-size-adjust:100%}
 html,body{margin:0;overscroll-behavior-y:none}
 @media (max-width:480px){html{background:var(--top,#f4f4f2);transition:background-color .25s ease}}
@@ -182,7 +185,7 @@ a:hover{color:inherit;opacity:.85}
 .btn{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .1s ease}
 .btn:hover{opacity:1;background:#fff;border-color:#fff !important;color:#35506a !important}
 .btn:active{background:#d6e3ee;border-color:#d6e3ee !important;color:#26394d !important;transform:scale(.97)}
-.btn-dark:hover{background:#4f6b8a;border-color:#4f6b8a !important;color:#fff !important}
+.btn-dark:hover{background:#8B6B52;border-color:#8B6B52 !important;color:#fff !important}
 .rf-modal{position:fixed;left:0;top:0;right:0;bottom:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;visibility:hidden;opacity:0;transition:opacity .3s ease,visibility 0s linear .3s}
 .rf-modal.open{visibility:visible;opacity:1;transition:opacity .3s ease}
 .rf-back{position:absolute;left:0;top:-150px;right:0;bottom:-150px;background:rgba(22,32,46,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
@@ -204,7 +207,7 @@ a:hover{color:inherit;opacity:.85}
 .rf-step .rf-i{width:56px;padding:0;text-align:center;font-size:22px}
 .rf-submit{cursor:pointer;background:transparent;font-family:'Cormorant Garamond',serif}
 .rf-msg{min-height:20px;margin-top:8px;text-align:center;font-size:17px;line-height:1.2;color:#fff}
-.btn-dark:active{background:#26334a;border-color:#26334a !important;color:#fff !important}
+.btn-dark:active{background:#4A3223;border-color:#4A3223 !important;color:#fff !important}
 </style>
 </helmet>
 
@@ -255,29 +258,31 @@ a:hover{color:inherit;opacity:.85}
     </div>
 
     <div data-reveal="1" style="margin:26px auto 0;max-width:380px;text-align:center">
-      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4f6b8a">Душа наша уповает на&nbsp;Господа!<br>Он&nbsp;— помощь наша и&nbsp;защита наша.</p>
-      <div style="margin-top:12px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#5a6b7c">Псалом 32:20</div>
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#8B6B52">Душа наша уповает на&nbsp;Господа!<br>Он&nbsp;— помощь наша и&nbsp;защита наша.</p>
+      <div style="margin-top:12px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#4A3223">Псалом 32:20</div>
     </div>
 
     <div data-reveal="1" style="margin-top:46px;text-align:center">
       <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;letter-spacing:.03em;text-transform:uppercase;color:#4f6b8a">Родные и любимые!</div>
       <p style="margin:18px auto 0;max-width:345px;font-size:22px;line-height:1.27;text-wrap:pretty">Хотим, чтобы вы разделили с нами радость и были на торжестве в самый лучший и трогательный день в нашей жизни!</p>
-      <div style="margin-top:22px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:37px;color:#4f6b8a">19.12.2026</div>
+      <div style="margin-top:22px;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:37px;color:#8B6B52">19.12.2026</div>
       <div style="margin-top:20px;font-size:19px;letter-spacing:.04em;text-transform:uppercase">Артём &amp; Даниэла</div>
     </div>
 
     <div data-reveal="1" style="margin:52px -8px 0;padding:38px 10px 34px;text-align:center;background:linear-gradient(160deg,#4a5b75,#33404f);border-radius:24px;box-shadow:0 8px 24px rgba(51,64,79,.25)">
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;line-height:1.25;letter-spacing:.03em;text-transform:uppercase;color:#fff">До нашей свадьбы<br>осталось</div>
-      <div style="margin-top:26px;display:flex;justify-content:center;gap:18px">
+      <div style="container-type:inline-size">
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:min(30px,8.3cqw);line-height:1.25;letter-spacing:.03em;text-transform:uppercase;color:#fff">До нашей свадьбы<br>осталось</div>
+      <div style="margin-top:26px;display:flex;justify-content:center;gap:min(18px,4.6cqw)">
         <sc-for list="{{ cd }}" as="u" hint-placeholder-count="4">
           <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
-            <div style="display:flex;gap:4px">
-              <span style="width:36px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(203,215,232,.45);border-radius:3px;background:rgba(203,215,232,.14);font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff">{{ u.a }}</span>
-              <span style="width:36px;height:46px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(203,215,232,.45);border-radius:3px;background:rgba(203,215,232,.14);font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff">{{ u.b }}</span>
+            <div style="display:flex;gap:min(4px,1cqw)">
+              <span class="cd-box">{{ u.a }}</span>
+              <span class="cd-box">{{ u.b }}</span>
             </div>
             <span style="font-size:11px;color:rgba(203,215,232,.8)">{{ u.label }}</span>
           </div>
         </sc-for>
+      </div>
       </div>
     </div>
   </section>
@@ -285,8 +290,8 @@ a:hover{color:inherit;opacity:.85}
   <!-- 03 LOCATION + TIMING -->
   <section data-screen-label="03 Location" data-top="#9fb6ca" style="position:relative;z-index:2;margin-top:-28px;border-radius:28px 28px 0 0;padding:68px 26px 80px;background:radial-gradient(ellipse 60% 30% at 25% 12%,rgba(255,255,255,.22),transparent 70%),radial-gradient(ellipse 55% 25% at 85% 48%,rgba(255,255,255,.16),transparent 70%),radial-gradient(ellipse 70% 30% at 30% 82%,rgba(255,255,255,.2),transparent 70%),#9fb6ca;color:#fff;text-align:center;overflow:hidden">
     <div data-reveal="1" style="position:relative;padding-bottom:40px">
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase">Место<br>проведения</div>
-      <div style="position:absolute;left:42%;top:72px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(255,255,255,.38);white-space:nowrap;pointer-events:none">location</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:var(--fs-h);line-height:1.35;text-transform:uppercase">Место<br>проведения</div>
+      <div style="position:absolute;left:42%;top:72px;font-family:'The Nautigal',cursive;font-size:var(--fs-script);line-height:1;color:rgba(255,255,255,.38);white-space:nowrap;pointer-events:none">location</div>
     </div>
     <div data-reveal="1" style="margin-top:28px">
       <div style="font-size:22px;letter-spacing:.02em;text-transform:uppercase">Торжество:</div>
@@ -297,8 +302,8 @@ a:hover{color:inherit;opacity:.85}
     <div data-reveal="1" style="margin:40px -26px 0"><img src="assets/venue.jpg" alt="Дом молитвы" style="display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(180deg,transparent,#000 22%,#000 80%,transparent),linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent,#000 22%,#000 80%,transparent),linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect"></div>
 
     <div data-reveal="1" style="position:relative;margin-top:76px;padding-bottom:56px">
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase">Тайминг<br>дня</div>
-      <div style="position:absolute;left:24%;top:78px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(255,255,255,.38);white-space:nowrap;pointer-events:none">timing</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:var(--fs-h);line-height:1.35;text-transform:uppercase">Тайминг<br>дня</div>
+      <div style="position:absolute;left:24%;top:78px;font-family:'The Nautigal',cursive;font-size:var(--fs-script);line-height:1;color:rgba(255,255,255,.38);white-space:nowrap;pointer-events:none">timing</div>
     </div>
 
     <div style="margin-top:34px;display:flex;flex-direction:column;gap:34px">
@@ -326,8 +331,8 @@ a:hover{color:inherit;opacity:.85}
   <!-- 04 DRESS CODE + DETAILS -->
   <section data-screen-label="04 Details" data-top="#f4f4f2" style="position:relative;z-index:3;margin-top:-28px;border-radius:28px 28px 0 0;padding:68px 26px 130px;background:radial-gradient(ellipse 70% 30% at 80% 10%,rgba(159,182,202,.38),transparent 70%),radial-gradient(ellipse 60% 30% at 20% 55%,rgba(203,215,232,.5),transparent 70%),#f4f4f2;text-align:center;overflow:hidden">
     <div data-reveal="1" style="position:relative;padding-bottom:52px">
-      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase;color:#4f6b8a">Дресс-код</div>
-      <div style="position:absolute;left:0;right:0;top:20px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(159,182,202,.55);white-space:nowrap;pointer-events:none">dress code</div>
+      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:var(--fs-h);line-height:1.35;text-transform:uppercase;color:#8B6B52">Дресс-код</div>
+      <div style="position:absolute;left:0;right:0;top:20px;font-family:'The Nautigal',cursive;font-size:var(--fs-script);line-height:1;color:rgba(139,107,82,.3);white-space:nowrap;pointer-events:none">dress code</div>
     </div>
     <div data-reveal="1" style="margin-top:30px">
       <p style="margin:0 auto;max-width:320px;font-size:22px;line-height:1.27">Будем рады видеть вас в нарядах палитры торжества.</p>
@@ -340,16 +345,16 @@ a:hover{color:inherit;opacity:.85}
     </div>
 
     <div data-reveal="1" style="position:relative;margin-top:76px;padding-bottom:52px">
-      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase;color:#4f6b8a">Детали</div>
-      <div style="position:absolute;left:30%;top:20px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(159,182,202,.55);white-space:nowrap;pointer-events:none">details</div>
+      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:var(--fs-h);line-height:1.35;text-transform:uppercase;color:#8B6B52">Детали</div>
+      <div style="position:absolute;left:30%;top:20px;font-family:'The Nautigal',cursive;font-size:var(--fs-script);line-height:1;color:rgba(139,107,82,.3);white-space:nowrap;pointer-events:none">details</div>
     </div>
     <div data-reveal="1" style="margin-top:30px">
-      <div style="font-size:19px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#26334a">Подарки</div>
+      <div style="font-size:19px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#4A3223">Подарки</div>
       <p style="margin:16px auto 0;max-width:355px;font-size:22px;line-height:1.27">Будем благодарны, если вы выберете подарок, который пополнит бюджет нашей молодой семьи.</p>
     </div>
     <div data-reveal="1" style="margin-top:44px">
       <p style="margin:0 auto;max-width:330px;font-size:22px;line-height:1.27">Также вы можете выбрать и забронировать подарок из вишлиста.</p>
-      <a class="btn btn-dark" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:45px;margin-top:28px;padding:0 21px;border:1px solid #4f6b8a;font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:#4f6b8a">Открыть вишлист</a>
+      <a class="btn btn-dark" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;height:45px;margin-top:28px;padding:0 21px;border:1px solid #8B6B52;font-size:16px;letter-spacing:.02em;text-transform:uppercase;color:#8B6B52">Открыть вишлист</a>
     </div>
     <div data-reveal="1" style="position:relative;margin:56px auto 0;width:86%;padding:7.5%;background:#fff;box-shadow:0 2px 10px rgba(40,40,50,.08)">
       <img src="assets/p2.jpg" alt="" style="width:100%;aspect-ratio:2/3;object-fit:cover;object-position:50% 30%;display:block">
@@ -360,8 +365,8 @@ a:hover{color:inherit;opacity:.85}
   <!-- 05 RSVP -->
   <section data-screen-label="05 RSVP" data-top="#9fb6ca" style="position:relative;z-index:4;margin-top:-28px;border-radius:28px 28px 0 0;padding:68px 26px 0;background:radial-gradient(ellipse 60% 25% at 70% 12%,rgba(255,255,255,.22),transparent 70%),linear-gradient(180deg,#9fb6ca 0%,#7790ab 32%,#506179 68%,#33404f 100%);color:#fff;text-align:center;overflow:hidden">
     <div data-reveal="1" style="position:relative;padding-bottom:50px">
-      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:50px;line-height:1.35;text-transform:uppercase">Анкета гостя</div>
-      <div style="position:absolute;left:36%;top:2px;font-family:'The Nautigal',cursive;font-size:120px;line-height:1;color:rgba(255,255,255,.38);white-space:nowrap;pointer-events:none">Rsvp</div>
+      <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:var(--fs-h);line-height:1.35;text-transform:uppercase">Анкета гостя</div>
+      <div style="position:absolute;left:36%;top:2px;font-family:'The Nautigal',cursive;font-size:var(--fs-script);line-height:1;color:rgba(255,255,255,.38);white-space:nowrap;pointer-events:none">Rsvp</div>
     </div>
     <div data-reveal="1" style="margin-top:30px">
       <p style="margin:0 auto;max-width:300px;font-size:22px;line-height:1.27;color:rgba(255,255,255,.92)">Пожалуйста, подтвердите своё присутствие, заполнив анкету.</p>
@@ -545,6 +550,91 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+
+<style>
+#music-btn{position:fixed;z-index:90;bottom:max(16px,env(safe-area-inset-bottom));right:max(16px,calc(50% - 204px));width:52px;height:52px;padding:0;border:1px solid rgba(203,215,232,.6);border-radius:50%;background:linear-gradient(160deg,#4a5b75,#33404f);box-shadow:0 4px 14px rgba(30,40,55,.35);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s,transform .1s ease}
+#music-btn.show{opacity:1;visibility:visible;transition:opacity .6s ease}
+#music-btn:active{transform:scale(.94)}
+#music-btn svg{display:block;width:24px;height:24px;fill:currentColor}
+#music-btn .i-pause{display:none}
+#music-btn.on .i-note{display:none}
+#music-btn.on .i-pause{display:block}
+</style>
+<button type="button" id="music-btn" aria-label="Включить музыку" aria-pressed="false">
+  <svg class="i-note" viewBox="0 0 24 24"><path d="M9 3v11.3A3.5 3.5 0 1 0 11 17.5V7.6l7-1.4v6.1A3.5 3.5 0 1 0 20 15.5V3z"></path></svg>
+  <svg class="i-pause" viewBox="0 0 24 24"><rect x="5.5" y="3.5" width="4.2" height="17" rx="1"></rect><rect x="14.3" y="3.5" width="4.2" height="17" rx="1"></rect></svg>
+</button>
+<audio id="bg-music" src="assets/music.m4a" loop preload="auto" playsinline></audio>
+<script>
+// фоновая музыка: стартует, когда закончилось интро и видно приглашение. Браузеры не дают играть звуку без касания,
+// поэтому если автозапуск заблокирован — музыка включится при первом касании/клике по странице
+(() => {
+  const root = document.documentElement;
+  const audio = document.getElementById('bg-music');
+  const btn = document.getElementById('music-btn');
+  const VOL = 0.6;
+  let wanted = true;   // гость не выключал музыку вручную
+  let started = false;
+
+  const sync = () => {
+    const on = !audio.paused;
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.setAttribute('aria-label', on ? 'Выключить музыку' : 'Включить музыку');
+  };
+  const fadeIn = () => {
+    audio.volume = 0;
+    const t0 = performance.now();
+    const step = now => {
+      const p = Math.max(0, Math.min(1, (now - t0) / 2500));
+      audio.volume = VOL * p;
+      if (p < 1 && !audio.paused) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const play = () => {
+    if (!wanted || root.classList.contains('intro-on')) return Promise.resolve(false);
+    const p = audio.play();
+    if (!p) return Promise.resolve(true);
+    return p.then(() => { if (!started) { started = true; fadeIn(); } return true; }, () => false);
+  };
+
+  // iOS: «разблокируем» аудио касанием по интро, чтобы потом оно могло запуститься само
+  const unlock = () => {
+    if (!root.classList.contains('intro-on') || started) return;
+    audio.muted = true;
+    const p = audio.play();
+    if (p) p.then(() => { audio.pause(); audio.currentTime = 0; audio.muted = false; }, () => { audio.muted = false; });
+  };
+  const evs = ['pointerdown', 'touchend', 'click', 'keydown'];
+  const onGesture = e => {
+    if (btn.contains(e.target)) return;
+    if (root.classList.contains('intro-on')) { unlock(); return; }
+    play().then(ok => { if (ok) evs.forEach(e => document.removeEventListener(e, onGesture, true)); sync(); });
+  };
+  evs.forEach(e => document.addEventListener(e, onGesture, true));
+
+  const reveal = () => { btn.classList.add('show'); play().then(sync); };
+  if (!root.classList.contains('intro-on')) reveal();
+  else new MutationObserver((_, mo) => { if (!root.classList.contains('intro-on')) { mo.disconnect(); reveal(); } })
+    .observe(root, { attributes: true, attributeFilter: ['class'] });
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    if (audio.paused) { wanted = true; audio.volume = VOL; audio.play().then(() => { started = true; sync(); }, sync); }
+    else { wanted = false; audio.pause(); sync(); }
+  });
+  audio.addEventListener('play', sync);
+  audio.addEventListener('pause', sync);
+
+  // свернули вкладку / заблокировали экран — ставим на паузу, вернулись — продолжаем (если гость не выключал)
+  let resume = false;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { resume = !audio.paused; audio.pause(); }
+    else if (resume && wanted) { audio.play().catch(() => {}); }
+  });
+})();
 </script>
 </body>
 </html>
